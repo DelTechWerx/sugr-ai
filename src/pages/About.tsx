@@ -42,7 +42,7 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">The Visionaries</h2>
-            <p className="text-white/40 text-lg">The leaders driving the evolution of fintech.</p>
+            <p className="text-white/40 text-lg">The leaders driving the evolution of work in the era of AI.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-16">
