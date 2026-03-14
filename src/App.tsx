@@ -85,7 +85,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src="./asset/logo.svg" alt="Dynamic Frontier Solutions Group" className="h-10 w-auto"/>
+            <img src="./asset/logo.png" alt="Dynamic Frontier Solutions Group" className="h-10 w-auto"/>
             <div className="flex items-center gap-2">
               <span className="font-display font-bold text-xl tracking-tight">
                 Dynamic <span className="text-brand-green">Frontier</span> Solutions Group
@@ -641,7 +641,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/logo.svg" alt="Dynamic Frontier Group" className="h-8 w-auto"/>
+              <img src="/logo.png" alt="Dynamic Frontier Group" className="h-8 w-auto"/>
               <div className="flex items-center gap-2">
                 <span className="font-display font-bold text-lg tracking-tight">
                   Dynamic<span className="text-brand-green">Frontier</span>
