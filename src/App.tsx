@@ -85,14 +85,8 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src="./asset/logo.png" alt="Dynamic Frontier Solutions Group" className="h-10 w-auto" onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-              (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
-            }} />
-            <div className="hidden flex items-center gap-2">
-              <div className="w-8 h-8 bg-brand-green rounded flex items-center justify-center">
-                <Layers className="text-black w-5 h-5" />
-              </div>
+            <img src="./asset/logo.svg" alt="Dynamic Frontier Solutions Group" className="h-10 w-auto"/>
+            <div className="flex items-center gap-2">
               <span className="font-display font-bold text-xl tracking-tight">
                 Dynamic <span className="text-brand-green">Frontier</span> Solutions Group
               </span>
@@ -647,16 +641,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/logo.png" alt="Dynamic Frontier Group" className="h-8 w-auto" onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-                (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
-              }} />
-              <div className="hidden flex items-center gap-2">
-                <div className="w-6 h-6 bg-gradient-to-br from-brand-purple to-brand-green rounded flex items-center justify-center">
-                  <Layers className="text-white w-4 h-4" />
-                </div>
+              <img src="/logo.svg" alt="Dynamic Frontier Group" className="h-8 w-auto"/>
+              <div className="flex items-center gap-2">
                 <span className="font-display font-bold text-lg tracking-tight">
-                  Dynamic<span className="text-brand-purple">Frontier</span>
+                  Dynamic<span className="text-brand-green">Frontier</span>
                 </span>
               </div>
             </Link>
