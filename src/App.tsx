@@ -644,7 +644,7 @@ const Footer = () => {
               <img src="./asset/logo.png" alt="Dynamic Frontier Group" className="h-8 w-auto"/>
               <div className="flex items-center gap-2">
                 <span className="font-display font-bold text-lg tracking-tight">
-                  Dynamic <span className="text-brand-green">Frontier</span> Solutions Group
+                  Dynamic<span className="text-brand-green">Frontier</span>
                 </span>
               </div>
             </Link>
