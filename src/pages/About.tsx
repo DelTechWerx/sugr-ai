@@ -5,7 +5,7 @@ const About = () => {
   const founders = [
     {
       name: "Dan Alberto",
-      role: "Founder & CFO",
+      role: "Founder & Operations Director",
       bio: "A visionary leader in the fintech space, Danny has dedicated his career to bridging the gap between traditional banking and the digital frontier. With a deep understanding of market evolution, he steers Dynamic Frontier's strategic mission to empower financial institutions with human-centric AI.",
       linkedin: "https://www.linkedin.com/in/danfrancisalberto/",
       image: "./asset/danny.jpg"
@@ -16,6 +16,13 @@ const About = () => {
       bio: "The technical architect behind Dynamic Frontier's luminous solutions. Del brings extensive expertise in engineering complex financial systems and AI integration. His focus on technical excellence and scalable architecture ensures that our partners stay ahead in an ever-evolving technological landscape.",
       linkedin: "https://www.linkedin.com/in/darabiana/",
       image: "./asset/darabiana.jpg"
+    },
+    {
+      name: "Viktorya Bohdan",
+      role: "Chief Marketing Officer",
+      bio: "A strategic marketing powerhouse with over 25 years of experience. Viktorya spent 15 years at IBM before serving as Marketing Director for a major Eastern European telecom provider. Her expertise in global brand positioning and digital growth is instrumental in scaling Dynamic Frontier's international presence.",
+      linkedin: "#",
+      image: "./asset/viktoria.png"
     }
   ];
 
@@ -45,7 +52,7 @@ const About = () => {
             <p className="text-white/40 text-lg">The leaders driving the evolution of work in the era of AI.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {founders.map((founder, i) => (
               <motion.div
                 key={i}
@@ -53,7 +60,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.2 }}
-                className="glass p-10 rounded-3xl flex flex-col md:flex-row gap-8 items-center md:items-start"
+                className="glass p-8 rounded-3xl flex flex-col gap-8 items-center text-center"
               >
                 <div className="relative flex-shrink-0">
                   <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-brand-green/30 p-1">
@@ -76,7 +83,7 @@ const About = () => {
                 <div>
                   <h3 className="text-2xl font-bold mb-1">{founder.name}</h3>
                   <p className="text-brand-green font-medium mb-4">{founder.role}</p>
-                  <p className="text-white/50 leading-relaxed">
+                  <p className="text-white/50 leading-relaxed text-sm">
                     {founder.bio}
                   </p>
                 </div>
