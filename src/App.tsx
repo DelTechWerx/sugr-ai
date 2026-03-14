@@ -94,7 +94,7 @@ const Navbar = () => {
               href="https://calendly.com/dynamicfrontiergroup-info/30min" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-sm font-bold text-white/80 hover:text-white transition-colors"
+              className="btn-outline-sm"
             >
               Request Demo
             </a>
@@ -130,7 +130,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
               />
             ))}
-            <button className="bg-brand-purple text-white w-full py-3 rounded-xl font-bold">
+            <button className="btn-primary w-full py-3 rounded-xl font-bold">
               Get Started
             </button>
           </div>
