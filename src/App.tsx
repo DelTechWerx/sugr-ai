@@ -641,7 +641,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/logo.png" alt="Dynamic Frontier Group" className="h-8 w-auto"/>
+              <img src="./asset/logo.png" alt="Dynamic Frontier Group" className="h-8 w-auto"/>
               <div className="flex items-center gap-2">
                 <span className="font-display font-bold text-lg tracking-tight">
                   Dynamic<span className="text-brand-green">Frontier</span>
