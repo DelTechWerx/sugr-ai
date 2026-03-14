@@ -484,8 +484,8 @@ const Footer = () => {
           </div>
           
           <div className="flex gap-8 text-sm text-white/40">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="mailto:info@dynamicfrontiergroup.com" className="hover:text-white transition-colors">info@dynamicfrontiergroup.com</a>
           </div>
           
