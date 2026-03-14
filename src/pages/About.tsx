@@ -5,15 +5,15 @@ const About = () => {
   const founders = [
     {
       name: "Dan Alberto",
-      role: "Founder & Operations Director",
-      bio: "A visionary leader in the fintech space, Danny has dedicated his career to bridging the gap between traditional banking and the digital frontier. With a deep understanding of market evolution, he steers Dynamic Frontier's strategic mission to empower financial institutions with human-centric AI.",
+      role: "Co-Founder & Operations Director",
+      bio: "A visionary in the fintech space, Danny has dedicated his career to bridging the gap between traditional banking and the digital frontier. With a deep understanding of market evolution, he steers Dynamic Frontier's strategic mission to empower financial institutions with human-centric AI.",
       linkedin: "https://www.linkedin.com/in/danfrancisalberto/",
       image: "./asset/danny.jpg"
     },
     {
       name: "Del Feliciano Arabiana",
-      role: "Founder & Technology Director",
-      bio: "The technical architect behind Dynamic Frontier's luminous solutions. Del brings extensive expertise in engineering complex financial systems and AI integration. His focus on technical excellence and scalable architecture ensures that our partners stay ahead in an ever-evolving technological landscape.",
+      role: "Co-Founder & Technology Director",
+      bio: "The technical architect behind Dynamic Frontier's industry disruptive solutions. Del brings over 25 year of expertise in engineering complex systems, cloud enablement solutions and AI automation integration in banking, financial services, manufacturing, telecoms, retail and insurance. His focus on technical excellence and scalable architecture ensures that our partners stay ahead in an ever-evolving technological landscape.",
       linkedin: "https://www.linkedin.com/in/darabiana/",
       image: "./asset/darabiana.jpg"
     },
@@ -21,7 +21,7 @@ const About = () => {
       name: "Viktorya Bohdan",
       role: "Chief Marketing Officer",
       bio: "A strategic marketing powerhouse with over 25 years of experience. Viktorya spent 15 years at IBM before serving as Marketing Director for a major Eastern European telecom provider. Her expertise in global brand positioning and digital growth is instrumental in scaling Dynamic Frontier's international presence.",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/vikbohdan/",
       image: "./asset/viktoria.png"
     }
   ];
