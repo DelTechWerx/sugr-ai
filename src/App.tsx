@@ -141,6 +141,38 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const words = ["banking", "finance", "retail", "corporate"];
+
+  useEffect(() => {
+    const handleType = () => {
+      const i = loopNum % words.length;
+      const fullText = words[i];
+
+      setText(isDeleting 
+        ? fullText.substring(0, text.length - 1) 
+        : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 70 : 150);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setTypingSpeed(500);
+      }
+    };
+
+    const timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       {/* Background Glows */}
@@ -155,7 +187,10 @@ const Hero = () => {
         >
           <h1 className="text-7xl md:text-9xl lg:text-[10rem] font-bold leading-[0.9] mb-12 tracking-tighter text-white">
             The future <br />
-            of banking is <br />
+            of <span className="text-brand-green relative inline-block min-w-[3ch] text-left">
+              {text}
+              <span className="absolute right-[-0.05em] top-0 bottom-0 w-[4px] md:w-[8px] bg-brand-green animate-pulse" />
+            </span> is <br />
             <span className="flex items-center justify-center gap-4">
               <span className="inline-flex items-center justify-center w-16 h-16 md:w-28 md:h-28 rounded-full border border-brand-green/20">
                 <Shield className="text-brand-green w-8 h-8 md:w-14 md:h-14" />
@@ -169,8 +204,8 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-white/40 leading-relaxed mb-14 max-w-2xl mx-auto font-medium">
-            We help financial institutions map the digital frontier, track the evolution of fintech, 
-            and close the gaps to thrive in an AI-driven world.
+            We help institutions chart their digital frontier, brave their daily challenges, and navigate the evolution of business, 
+            and close the divide and globally compete in this new AI-driven world.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -195,7 +230,7 @@ const Clients = () => {
     { name: "Mynt", domain: "mynt.xyz", logo: "mynt.png" },
     { name: "PBCom", domain: "pbcom.com.ph", logo: "pbcom.png" },
     { name: "Home Credit", domain: "homecredit.ph", logo: "homecredit.png" },
-    { name: "UnionBank", domain: "unionbankph.com", logo: "Unionbank.png" },
+    { name: "UnionBank", domain: "unionbankph.com", logo: "unionbank.png" },
     { name: "GCash", domain: "gcash.com", logo: "gcash.png" },
     { name: "Maya", domain: "maya.ph", logo: "maya.png" },
     { name: "BDO", domain: "bdo.com.ph", logo: "bdo.png" },
@@ -210,24 +245,24 @@ const Clients = () => {
         </p>
       </div>
       
-      <div className="flex relative overflow-hidden bg-white/20 backdrop-blur-md py-3 border-y border-white/10">
+      <div className="flex relative overflow-hidden bg-white/[0.30] backdrop-blur-sm py-8 border-y border-white/5">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ 
-            duration: 40, 
+            duration: 50, 
             repeat: Infinity, 
             ease: "linear" 
           }}
-          className="flex gap-24 items-center whitespace-nowrap px-6"
+          className="flex gap-20 items-center whitespace-nowrap px-6"
         >
           {[...clients, ...clients].map((client, i) => (
-            <div key={i} className="flex items-center transition-all duration-500 cursor-default group">
-              <div className="w-20 h-10 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+            <div key={i} className="flex items-center gap-4 transition-all duration-500 cursor-default group">
+              <div className="w-10 h-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
                 <img 
                   src={`/asset/customer/${client.logo}`} 
                   alt={client.name}
                   title={client.name}
-                  className="w-full h-full object-contain max-h-8 drop-shadow-sm"
+                  className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity filter brightness-110"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     // Fallback to Clearbit if local file is missing
@@ -239,6 +274,9 @@ const Clients = () => {
                   }}
                 />
               </div>
+              <span className="text-white/20 text-xs font-bold tracking-[0.2em] uppercase group-hover:text-brand-green/60 transition-colors">
+                {client.name}
+              </span>
             </div>
           ))}
         </motion.div>
