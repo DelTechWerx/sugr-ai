@@ -14,10 +14,23 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -25,28 +38,54 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const NavLink = ({ item, onClick, className }: { item: string, onClick?: () => void, className?: string, key?: string }) => {
+    const href = `#${item.toLowerCase()}`;
+    const baseClass = className || "text-sm font-semibold text-white/50 hover:text-white transition-colors tracking-wide";
+    
+    if (isHome) {
+      return (
+        <a 
+          href={href} 
+          className={baseClass}
+          onClick={onClick}
+        >
+          {item}
+        </a>
+      );
+    }
+    return (
+      <Link 
+        to={`/${href}`}
+        className={baseClass}
+        onClick={onClick}
+      >
+        {item}
+      </Link>
+    );
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-brand-dark/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-brand-green rounded flex items-center justify-center">
-              <Layers className="text-black w-5 h-5" />
+          <Link to="/" className="flex items-center gap-3">
+            <img src="/logo.png" alt="Dynamic Frontier Group" className="h-10 w-auto" onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none';
+              (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+            }} />
+            <div className="hidden flex items-center gap-2">
+              <div className="w-8 h-8 bg-brand-green rounded flex items-center justify-center">
+                <Layers className="text-black w-5 h-5" />
+              </div>
+              <span className="font-display font-bold text-xl tracking-tight">
+                Dynamic<span className="text-brand-green">Frontier</span>
+              </span>
             </div>
-            <span className="font-display font-bold text-xl tracking-tight">
-              Dynamic<span className="text-brand-green">Frontier</span>
-            </span>
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center gap-10">
             {['Solutions', 'Technology', 'Vision', 'Partnership'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                className="text-sm font-semibold text-white/50 hover:text-white transition-colors tracking-wide"
-              >
-                {item}
-              </a>
+              <NavLink key={item} item={item} />
             ))}
           </div>
 
@@ -84,14 +123,12 @@ const Navbar = () => {
         >
           <div className="glass rounded-2xl p-6 flex flex-col gap-4">
             {['Solutions', 'Technology', 'Vision', 'Partnership'].map((item) => (
-              <a 
+              <NavLink 
                 key={item} 
-                href={`#${item.toLowerCase()}`} 
+                item={item} 
                 className="text-lg font-medium text-white/70"
                 onClick={() => setMobileMenuOpen(false)}
-              >
-                {item}
-              </a>
+              />
             ))}
             <button className="bg-brand-purple text-white w-full py-3 rounded-xl font-bold">
               Get Started
@@ -474,18 +511,26 @@ const Footer = () => {
     <footer className="py-12 border-t border-white/5">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-gradient-to-br from-brand-purple to-brand-green rounded flex items-center justify-center">
-              <Layers className="text-white w-4 h-4" />
-            </div>
-            <span className="font-display font-bold text-lg tracking-tight">
-              Dynamic<span className="text-brand-purple">Frontier</span>
-            </span>
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
+              <img src="/logo.png" alt="Dynamic Frontier Group" className="h-8 w-auto" onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+                (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+              }} />
+              <div className="hidden flex items-center gap-2">
+                <div className="w-6 h-6 bg-gradient-to-br from-brand-purple to-brand-green rounded flex items-center justify-center">
+                  <Layers className="text-white w-4 h-4" />
+                </div>
+                <span className="font-display font-bold text-lg tracking-tight">
+                  Dynamic<span className="text-brand-purple">Frontier</span>
+                </span>
+              </div>
+            </Link>
           </div>
           
           <div className="flex gap-8 text-sm text-white/40">
-            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             <a href="mailto:info@dynamicfrontiergroup.com" className="hover:text-white transition-colors">info@dynamicfrontiergroup.com</a>
           </div>
           
@@ -498,22 +543,37 @@ const Footer = () => {
   );
 };
 
+const Home = () => {
+  return (
+    <>
+      <Hero />
+      <Clients />
+      <Services />
+      <Vision />
+      <CTA />
+    </>
+  );
+};
+
 export default function App() {
   return (
-    <div className="relative">
-      <Navbar />
-      <main>
-        <Hero />
-        <Clients />
-        <Services />
-        <Vision />
-        <CTA />
-      </main>
-      <Footer />
-      
-      {/* Global Background Noise/Texture */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="relative">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+          </Routes>
+        </main>
+        <Footer />
+        
+        {/* Global Background Noise/Texture */}
+        <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      </div>
+    </Router>
   );
 }
 
