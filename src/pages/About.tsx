@@ -32,7 +32,7 @@ const About = () => {
             Mapping the <span className="text-brand-green">Digital Frontier</span>
           </h1>
           <p className="text-xl text-white/60 leading-relaxed max-w-2xl">
-            Dynamic Frontier is a specialized a Managed Service Provider, AI & Automation Consultancy and Technology Engineering firm dedicated to helping organizations navigate the complexities of the AI-driven world. We believe the future of industries will be a luminous blend of human intuition and artificial intelligence.
+            Dynamic Frontier Solutions Group is a specialized a Tech-Enablement Service Provider, AI & Automation Consultancy and Solutions Engineering firm dedicated to helping organizations navigate the complexities of the AI-driven world. We believe the future of industries will be a luminous blend of human intuition and artificial intelligence.
           </p>
         </motion.div>
       </section>
