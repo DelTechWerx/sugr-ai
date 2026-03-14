@@ -93,7 +93,7 @@ const Navbar = () => {
                 <Layers className="text-black w-5 h-5" />
               </div>
               <span className="font-display font-bold text-xl tracking-tight">
-                Dynamic <span className="text-brand-green">Frontier</span> Solutions Group
+                Dynamic <span className="text-brand-green">Frontier</span>
               </span>
             </div>
           </Link>
