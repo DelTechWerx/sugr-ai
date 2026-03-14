@@ -11,7 +11,8 @@ import {
   Lock,
   Menu,
   X,
-  ChevronRight
+  ChevronRight,
+  Quote
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
@@ -520,6 +521,86 @@ const Vision = () => {
   );
 };
 
+const Testimonials = () => {
+  const reviews = [
+    {
+      name: "Sarah Lao Chen",
+      role: "CTO, NeoBank",
+      content: "The eWallet App custom development by Dynamic Frontier was a game-changer for our digital expansion. Their attention to security and seamless UX allowed us to scale to 1M+ users in record time.",
+      image: "https://picsum.photos/seed/sarah/100/100"
+    },
+    {
+      name: "Marcus Thorne",
+      role: "Operations Director, VoxaTel",
+      content: "Implementing their AI-Voice Contact Center Agent was transformative. We managed to lower customer support inquiries by 73% and reduced customer churn to 7% within the first quarter. Truly luminous results.",
+      image: "https://picsum.photos/seed/marcus/100/100"
+    },
+    {
+      name: "Elena Rodriguez",
+      role: "VP of Logistics, Renegade Logistics & Heavy Industries",
+      content: "Dynamic Frontier delivered a custom enterprise solution that perfectly fits our complex logistics workflows. It's rare to find a partner who understands heavy industry as well as they do technology.",
+      image: "https://picsum.photos/seed/elena/100/100"
+    },
+    {
+      name: "Jonathan Sterling",
+      role: "Head of Digital Assets, Scallop Group",
+      content: "Integrating cryptocurrencies seemed daunting until we partnered with Dynamic Frontier. They made exchange transactions seamless and institutional-grade, positioning us at the absolute forefront of modern banking.",
+      image: "https://picsum.photos/seed/sterling/100/100"
+    }
+  ];
+
+  return (
+    <section id="testimonials" className="py-32 bg-white/[0.01]">
+      <div className="container mx-auto px-6">
+        <div className="mb-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tighter">Voices from the <span className="text-brand-green">Frontier</span></h2>
+            <p className="text-white/40 text-lg max-w-2xl mx-auto">Real results from industry leaders who have conquered the digital landscape with us.</p>
+          </motion.div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {reviews.map((review, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="glass p-8 md:p-10 rounded-[2.5rem] relative group hover:border-brand-green/20 transition-all duration-500"
+            >
+              <Quote className="absolute top-8 right-8 text-brand-green/10 w-16 h-16 group-hover:text-brand-green/20 transition-colors" />
+              
+              <div className="flex items-center gap-5 mb-8">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-green/30 p-1">
+                  <img 
+                    src={review.image} 
+                    alt={review.name} 
+                    className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold">{review.name}</h4>
+                  <p className="text-brand-green text-sm font-medium uppercase tracking-wider">{review.role}</p>
+                </div>
+              </div>
+
+              <p className="text-white/60 text-lg leading-relaxed italic">
+                "{review.content}"
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CTA = () => {
   return (
     <section id="partnership" className="py-40 relative scroll-mt-20">
@@ -603,6 +684,7 @@ const Home = () => {
       <Clients />
       <Services />
       <Vision />
+      <Testimonials />
       <CTA />
     </>
   );
