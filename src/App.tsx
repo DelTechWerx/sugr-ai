@@ -84,7 +84,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Dynamic Frontier Group" className="h-10 w-auto" onError={(e) => {
+            <img src="./asset/dfsg_logo.png" alt="Dynamic Frontier Solutions Group" className="h-10 w-auto" onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
               (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
             }} />
@@ -93,7 +93,7 @@ const Navbar = () => {
                 <Layers className="text-black w-5 h-5" />
               </div>
               <span className="font-display font-bold text-xl tracking-tight">
-                Dynamic<span className="text-brand-green">Frontier</span>
+                Dynamic <span className="text-brand-green">Frontier</span> Solutions Group
               </span>
             </div>
           </Link>

@@ -8,14 +8,14 @@ const About = () => {
       role: "Founder & Managing Director",
       bio: "A visionary leader in the fintech space, Dan has dedicated his career to bridging the gap between traditional banking and the digital frontier. With a deep understanding of market evolution, he steers Dynamic Frontier's strategic mission to empower financial institutions with human-centric AI.",
       linkedin: "https://www.linkedin.com/in/danfrancisalberto/",
-      image: "./asset/customer/danny.jpg"
+      image: "./asset/danny.jpg"
     },
     {
       name: "Del Feliciano Arabiana",
       role: "Co-Founder and Engineering Director",
       bio: "The technical architect behind Dynamic Frontier's luminous solutions. Del brings extensive expertise in engineering complex financial systems and AI integration. His focus on technical excellence and scalable architecture ensures that our partners stay ahead in an ever-evolving technological landscape.",
       linkedin: "https://www.linkedin.com/in/darabiana/",
-      image: "./asset/customer/darabiana.jpg"
+      image: "./asset/darabiana.jpg"
     }
   ];
 
