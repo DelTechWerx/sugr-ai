@@ -527,25 +527,25 @@ const Testimonials = () => {
       name: "Sarah Lao Chen",
       role: "CTO, NeoBank",
       content: "The eWallet App custom development by Dynamic Frontier was a game-changer for our digital expansion. Their attention to security and seamless UX allowed us to scale to 1M+ users in record time.",
-      image: "https://picsum.photos/seed/sarah/100/100"
+      image: "./asset/customer/sarah.png"
     },
     {
       name: "Marcus Thorne",
       role: "Operations Director, VoxaTel",
-      content: "Implementing their AI-Voice Contact Center Agent was transformative. We managed to lower customer support inquiries by 73% and reduced customer churn to 7% within the first quarter. Truly luminous results.",
-      image: "https://picsum.photos/seed/marcus/100/100"
+      content: "Implementing their AI-Voice Contact Center Agent was transformative. We managed to lower customer support inquiries by 47% and reduced customer churn to ~7% within the first quarter. Truly luminous results.",
+      image: "./asset/customer/marcus.png"
     },
     {
       name: "Elena Rodriguez",
       role: "VP of Logistics, Renegade Logistics & Heavy Industries",
       content: "Dynamic Frontier delivered a custom enterprise solution that perfectly fits our complex logistics workflows. It's rare to find a partner who understands heavy industry as well as they do technology.",
-      image: "https://picsum.photos/seed/elena/100/100"
+      image: "./asset/customer/elena.png"
     },
     {
-      name: "Jonathan Sterling",
+      name: "Jonathan Subramanian",
       role: "Head of Digital Assets, Scallop Group",
       content: "Integrating cryptocurrencies seemed daunting until we partnered with Dynamic Frontier. They made exchange transactions seamless and institutional-grade, positioning us at the absolute forefront of modern banking.",
-      image: "https://picsum.photos/seed/sterling/100/100"
+      image: "./asset/customer/jonathan.png"
     }
   ];
 
