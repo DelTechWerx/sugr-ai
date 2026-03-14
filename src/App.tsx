@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { 
   Shield, 
   Cpu, 
@@ -556,10 +556,21 @@ const Home = () => {
 };
 
 export default function App() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
     <Router>
       <ScrollToTop />
       <div className="relative">
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-1 bg-brand-green origin-left z-[100] shadow-[0_0_10px_rgba(0,255,157,0.5)]"
+          style={{ scaleX }}
+        />
         <Navbar />
         <main>
           <Routes>
