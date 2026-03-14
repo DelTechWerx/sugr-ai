@@ -146,7 +146,7 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const words = ["banking", "finance", "retail", "corporate"];
+  const words = ["banking", "finance", "retail", "corporate", "digital"];
 
   useEffect(() => {
     const handleType = () => {
@@ -204,7 +204,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-white/40 leading-relaxed mb-14 max-w-2xl mx-auto font-medium">
-            We help institutions chart their digital frontier, brave their daily challenges, and navigate the evolution of business, 
+            We help institutions chart their digital frontier, brave their daily operational challenges, and navigate the evolution of business, 
             and close the divide and globally compete in this new AI-driven world.
           </p>
           
