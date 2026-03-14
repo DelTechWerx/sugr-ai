@@ -17,6 +17,8 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import About from './pages/About';
+import Products from './pages/Products';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -39,9 +41,22 @@ const Navbar = () => {
   }, []);
 
   const NavLink = ({ item, onClick, className }: { item: string, onClick?: () => void, className?: string, key?: string }) => {
-    const href = `#${item.toLowerCase()}`;
+    const isPage = ['About', 'Products'].includes(item);
+    const href = isPage ? `/${item.toLowerCase()}` : `#${item.toLowerCase()}`;
     const baseClass = className || "text-sm font-semibold text-white/50 hover:text-white transition-colors tracking-wide";
-    
+        
+    if (isPage) {
+      return (
+        <Link 
+          to={href}
+          className={baseClass}
+          onClick={onClick}
+        >
+          {item}
+        </Link>
+      );
+    }
+
     if (isHome) {
       return (
         <a 
@@ -84,7 +99,7 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden md:flex items-center gap-10">
-            {['Solutions', 'Technology', 'Vision', 'Partnership'].map((item) => (
+            {['About', 'Products', 'Solutions', 'Technology', 'Vision'].map((item) => (
               <NavLink key={item} item={item} />
             ))}
           </div>
@@ -122,7 +137,7 @@ const Navbar = () => {
           className="absolute top-full left-0 right-0 mt-2 px-6 md:hidden"
         >
           <div className="glass rounded-2xl p-6 flex flex-col gap-4">
-            {['Solutions', 'Technology', 'Vision', 'Partnership'].map((item) => (
+            {['About', 'Products', 'Solutions', 'Technology', 'Vision'].map((item) => (
               <NavLink 
                 key={item} 
                 item={item} 
@@ -613,6 +628,8 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />            
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
           </Routes>
