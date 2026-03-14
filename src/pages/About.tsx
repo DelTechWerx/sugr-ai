@@ -12,7 +12,7 @@ const About = () => {
     },
     {
       name: "Del Feliciano Arabiana",
-      role: "Co-Founder & Technology Director",
+      role: "Founder & Technology Director",
       bio: "The technical architect behind Dynamic Frontier's luminous solutions. Del brings extensive expertise in engineering complex financial systems and AI integration. His focus on technical excellence and scalable architecture ensures that our partners stay ahead in an ever-evolving technological landscape.",
       linkedin: "https://www.linkedin.com/in/darabiana/",
       image: "./asset/darabiana.jpg"
