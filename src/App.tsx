@@ -205,7 +205,7 @@ const Hero = () => {
               <span className="inline-flex items-center justify-center w-16 h-16 md:w-28 md:h-28 rounded-full border border-brand-green/20">
                 <Shield className="text-brand-green w-8 h-8 md:w-14 md:h-14" />
               </span>
-              <span className="text-white">Human +</span>
+              <span className="text-white">human +</span>
               <span className="inline-flex items-center justify-center w-16 h-16 md:w-28 md:h-28">
                 <Zap className="text-brand-green w-10 h-10 md:w-20 md:h-20 animate-pulse" />
               </span>
